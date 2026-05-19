@@ -110,6 +110,7 @@ project/
 ## Event Types
 
 ### Page View
+```json
 {
   "event_id": "1",
   "event_type": "page_view",
@@ -118,8 +119,10 @@ project/
   "country": "US",
   "page": "/home"
 }
+```
 
 ### Search
+```json
 {
   "event_id": "2",
   "event_type": "search",
@@ -128,8 +131,10 @@ project/
   "country": "US",
   "query": "firefox extensions"
 }
+```
 
 ### Purchase
+```json
 {
   "event_id": "3",
   "event_type": "purchase",
@@ -138,6 +143,7 @@ project/
   "country": "US",
   "amount": 29.99
 }
+```
 
 ---
 
@@ -211,18 +217,6 @@ Instead of writing data directly to storage, all events flow through a controlle
 
 ```http
 POST /events
-```
-
-### Example Event Payload
-
-```json
-{
-  "event_type": "page_view",
-  "event_ts": "2026-05-18T10:00:00",
-  "user_id": 101,
-  "country": "US",
-  "page": "/home"
-}
 ```
 
 ---
@@ -327,13 +321,17 @@ This demonstrates handling semi-structured data evolution using Spark and Parque
 
 ## Install dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ---
 
 ## Run FastAPI
 
+```bash
 uvicorn api.main:app --reload
+```
 
 API:
 http://127.0.0.1:8000
@@ -342,37 +340,49 @@ http://127.0.0.1:8000
 
 ## Generate synthetic events
 
+```bash
 python generator/generate_events.py
+```
 
 Output:
-data/raw/events/
+`data/raw/events/`
 
 ---
 
 ## Run Spark pipeline manually
 
 ### Bronze layer
+```bash
 python spark_jobs/bronze_load.py
+```
 
 ### Silver layer
+```bash
 python spark_jobs/bronze_to_silver.py
+```
 
 ### SCD user updates
+```bash
 python spark_jobs/update_dim_user_scd.py
+```
 
 ---
 
 ## Run dbt
 
+```bash
 cd dbt
 dbt run
 dbt test
+```
 
 ---
 
 ## Run Airflow
 
+```bash
 airflow standalone
+```
 
 Open UI:
 http://localhost:8080
