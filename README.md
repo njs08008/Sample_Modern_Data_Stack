@@ -2,7 +2,7 @@
 
 This project simulates a modern end-to-end data platform that processes telemetry-style events through a multi-layer architecture.
 
-The platform ingests synthetic application events, processes them through a medallion architecture using PySpark and Parquet, transforms them with dbt, orchestrates workflows with Airflow, and exposes analytics through a FastAPI service.
+The platform creates synthetic application events, ingests them via a FastAPI service, processes them through a medallion architecture using PySpark and Parquet, and transforms them with dbt, all using orchestrated workflows with Airflow.
 
 This is not intended to be production-grade infrastructure. Instead, the project is intentionally optimized for:
 
