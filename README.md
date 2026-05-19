@@ -47,7 +47,7 @@ PySpark Transformations
         ↓
 Silver Layer (Parquet)
         ↓
-DuckDB / Postgres Warehouse
+DuckDB Warehouse
         ↓
 dbt Gold Models
         ↓
@@ -157,7 +157,7 @@ project/
 
 ## Silver
 
-Normalized and validated event tables.
+Normalized and validated event tables. It processes all events in the Bronze layer from over the past 2 days in case any events arrived last. This is a balance between completeness and minimizing compute.
 
 ### Example Silver Tables
 
