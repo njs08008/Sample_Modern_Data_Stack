@@ -1,0 +1,108 @@
+version: 2
+
+models:
+
+  # =====================================================
+  # DAILY ACTIVE USERS
+  # =====================================================
+
+  - name: mart_dau
+
+    columns:
+
+      - name: event_date
+        tests:
+          - not_null
+          - unique
+
+      - name: daily_active_users
+        tests:
+          - not_null
+
+  # =====================================================
+  # REVENUE
+  # =====================================================
+
+  - name: mart_revenue
+
+    columns:
+
+      - name: event_date
+        tests:
+          - not_null
+          - unique
+
+      - name: daily_revenue
+        tests:
+          - not_null
+
+  # =====================================================
+  # EVENT MIX
+  # =====================================================
+
+  - name: mart_event_mix
+
+    columns:
+
+      - name: event_date
+        tests:
+          - not_null
+
+      - name: event_type
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - page_view
+                - search
+                - purchase
+                - error
+
+      - name: event_count
+        tests:
+          - not_null
+
+  # =====================================================
+  # FUNNEL
+  # =====================================================
+
+  - name: mart_funnel
+
+    columns:
+
+      - name: user_id
+        tests:
+          - not_null
+
+      - name: event_date
+        tests:
+          - not_null
+
+      - name: searches
+        tests:
+          - not_null
+
+      - name: page_views
+        tests:
+          - not_null
+
+      - name: purchases
+        tests:
+          - not_null
+
+  # =====================================================
+  # CURRENT USERS DIMENSION
+  # =====================================================
+
+  - name: dim_user_current
+
+    columns:
+
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+
+      - name: country
+        tests:
+          - not_null

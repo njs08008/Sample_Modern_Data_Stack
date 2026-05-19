@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_events
+
+    columns:
+
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+
+      - name: event_type
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - page_view
+                - search
+                - purchase
+                - error
+
+      - name: user_id
+        tests:
+          - not_null
+
+      - name: event_ts
+        tests:
+          - not_null
+
+      - name: ingested_at
+        tests:
+          - not_null
+
+      - name: country
+        tests:
+          - not_null

@@ -1,0 +1,126 @@
+#################################################
+# Python
+#################################################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.venv/
+venv/
+env/
+
+#################################################
+# Environment / secrets
+#################################################
+.env
+.env.*
+!.env.example
+
+#################################################
+# IDEs
+#################################################
+.vscode/
+.idea/
+*.swp
+*.swo
+
+#################################################
+# OS junk
+#################################################
+.DS_Store
+
+#################################################
+# Data lake
+#################################################
+
+# Raw / bronze / silver / gold data layers
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+
+# If you ever want to keep structure but not data:
+# !data/**/.gitkeep
+
+#################################################
+# DuckDB
+#################################################
+*.duckdb
+*.db
+*.sqlite
+
+# Prevent accidental warehouse duplication
+data/warehouse.duckdb
+data/*.duckdb
+
+#################################################
+# Spark artifacts
+#################################################
+spark-warehouse/
+metastore_db/
+derby.log
+*.crc
+
+# Spark temp / shuffle files
+*.parquet.tmp
+*.tmp
+
+#################################################
+# Airflow
+#################################################
+airflow.db
+airflow.cfg
+logs/
+dags/__pycache__/
+
+# Airflow local runtime artifacts
+airflow_home/
+.airflow/
+
+#################################################
+# dbt
+#################################################
+target/
+dbt_packages/
+logs/
+
+# dbt compiled SQL artifacts (already covered but explicit)
+*.compiled.sql
+
+#################################################
+# Jupyter (if case of future testing)
+#################################################
+.ipynb_checkpoints/
+
+#################################################
+# FastAPI / local runtime logs
+#################################################
+*.log
+
+#################################################
+# Project-specific safety net
+#################################################
+
+# prevent accidental large data commits
+*.parquet
+*.csv
+*.jsonl
+
+# BUT allow small sample fixtures if you ever add them:
+# !data/samples/**
+
+#################################################
+# Node / frontend (in case of later extension)
+#################################################
+node_modules/
+
+#################################################
+# Coverage / testing
+#################################################
+htmlcov/
+.coverage
+coverage.xml

@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: silver
+    tables:
+      - name: events
+        meta:
+          external_location: "../data/silver/events/*.parquet"
+  - name: warehouse
+    schema: main
+    tables:
+      - name: dim_user_scd

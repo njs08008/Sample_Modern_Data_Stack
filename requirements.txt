@@ -1,0 +1,22 @@
+# Core API
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.6.0
+requests>=2.31.0
+
+# Data processing
+pyspark>=3.5.0
+pandas>=2.2.0
+duckdb>=1.0.0
+
+# Workflow orchestration
+apache-airflow>=2.8.0
+apache-airflow-providers-apache-spark>=6.0.0
+
+# Utilities (often needed by Airflow/Spark/dbt ecosystems)
+pyarrow>=15.0.0
+numpy>=1.26.0
+
+# Optional but commonly needed for robustness
+python-dotenv>=1.0.0
+tenacity>=8.2.0
